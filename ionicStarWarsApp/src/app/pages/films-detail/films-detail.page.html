@@ -5,6 +5,15 @@
     </ion-buttons>
 
     <ion-title>{{ film?.title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoriteFilm()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoriteFilm()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
