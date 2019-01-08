@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" defaultHref="/tabs/planets">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ planet?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngIf="planet">
+
+    <ion-item>
+      <ion-label>
+        <h3>Gravity</h3>
+        <p>{{ planet.gravity }}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

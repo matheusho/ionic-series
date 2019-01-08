@@ -26,6 +26,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../people/people.module#PeoplePageModule'
+          },
+          {
+            path: ':id',
+            loadChildren: '../people-detail/people-detail.module#PeopleDetailPageModule'
           }
         ]
       },
@@ -35,6 +39,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../planets/planets.module#PlanetsPageModule'
+          },
+          {
+            path: ':id',
+            loadChildren: '../planets-detail/planets-detail.module#PlanetsDetailPageModule'
           }
         ]
       }

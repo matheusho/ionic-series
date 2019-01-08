@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-films',
@@ -9,17 +10,18 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./films.page.scss'],
 })
 export class FilmsPage implements OnInit {
+  films: Observable<any>;
 
-  constructor(private navController: NavController, private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
+    this.films = this.apiService.getFilms();
   }
 
-  openDetails() {
-    this.router.navigateByUrl(`/tabs/films/42`);
-  }
+  openDetails(film: any) {
+    const split = film.url.split('/');
+    const id = split[split.length - 2];
 
-  goToPlanets() {
-    this.navController.navigateRoot(`/tabs/planets`);
+    this.router.navigateByUrl(`/tabs/films/${id}`);
   }
 }
