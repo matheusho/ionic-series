@@ -16,7 +16,7 @@ export class FavoriteService {
 
   isFavorite(id: string) {
     return this.getAllFavoritesFilms().then((result: any) => {
-      return result && result.includes(id) !== -1;
+      return result && result.includes(id);
     });
   }
 
@@ -34,7 +34,7 @@ export class FavoriteService {
   unfavoriteFilm(id: string) {
     return this.getAllFavoritesFilms().then((result: any) => {
       if (result) {
-        const index = result.includes(id);
+        const index = result.indexOf(id);
         result.splice(index, 1);
 
         return this.storage.set(STORAGE_KEY, result);
