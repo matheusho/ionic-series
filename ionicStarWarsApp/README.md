@@ -9,3 +9,7 @@ Basic Ionic 4 concepts and tips.
 
 - Project structure
 - Routing
+- HTTP Call
+- Native device features
+- Store data
+- Styling the UI
